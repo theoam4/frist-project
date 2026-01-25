@@ -27,8 +27,5 @@ contract Counter {
         return number;
     }
 
-    event NumberChanged(
-        uint256 indexed newNumber,
-        address updatedBy
-    );
+    event NumberChanged(uint256 indexed newNumber, address updatedBy);
 }

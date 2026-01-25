@@ -21,7 +21,7 @@ contract CounterTest is Test {
         counter.setNumber(x);
         assertEq(counter.number(), x);
     }
-    
+
     function test_Revert_SetNumber_Unauthorized() public {
         address unknownUser = address(0x12345);
         vm.prank(unknownUser);
