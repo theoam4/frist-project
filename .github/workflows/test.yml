@@ -36,3 +36,13 @@ jobs:
 
       - name: Run Forge tests
         run: forge test -vvv
+      
+      - name: Run Forge coverage
+        run: forge coverage --report summary
+
+      - name: Deploy to Amoy Testnet
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          # echo "Deploying to Amoy Testnet..."
+          # Add your deployment commands here
+
