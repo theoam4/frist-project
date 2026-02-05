@@ -17,6 +17,33 @@ contract CounterTest is Test {
         assertEq(counter.number(), 1);
     }
 
+    function test_Decrement() public {
+        counter.setNumber(5);
+        counter.decrement();
+        assertEq(counter.number(), 4);
+    }
+
+    function test_Decrement_Underflow() public {
+        counter.setNumber(0);
+        vm.expectRevert(Counter.Decrement_Underflow.selector);
+        counter.decrement();
+    }
+
+    function test_MultiIncrement() public {
+        for (uint256 i = 0; i < 5; i++) {
+            counter.increment();
+        }
+        assertEq(counter.number(), 5);
+    }
+
+    function test_MultiDecrement() public {
+        counter.setNumber(5);
+        for (uint256 i = 0; i < 5; i++) {
+            counter.decrement();
+        }
+        assertEq(counter.number(), 0);
+    }
+
     function testFuzz_SetNumber(uint256 x) public {
         counter.setNumber(x);
         assertEq(counter.number(), x);
