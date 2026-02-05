@@ -5,6 +5,8 @@ contract Counter {
     uint256 public number;
     address public owner;
 
+    error Decrement_Underflow();
+    
     constructor() {
         owner = msg.sender;
     }
@@ -20,6 +22,9 @@ contract Counter {
     }
 
     function decrement() public {
+        if (number == 0) {
+            revert Decrement_Underflow();
+        }
         number--;
     }
 
