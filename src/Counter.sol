@@ -6,7 +6,7 @@ contract Counter {
     address public owner;
 
     error Decrement_Underflow();
-    
+
     constructor() {
         owner = msg.sender;
     }
