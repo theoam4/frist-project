@@ -56,4 +56,3 @@ contract CounterTest is Test {
         counter.setNumber(100);
     }
 }
-
